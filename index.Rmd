@@ -85,7 +85,7 @@ title("Relationship between hour of the day and heart rate")
 ## Model your heart rate with different models and variables (1/2)
 
 The Heart rate prediction tab challenges the user to find the best model to predict the heart rate. You can select two different models (knn and glm), 5 different variables (Distance, Floors , Calories burned, Step count, Active Minutes , Day of the week, Hour), and predict the heart rate for selected values of the selected variables.
-The graph below shows the realized and predicted heart rate for the GLM model on the testing set, which contains of 25% of the total dataset. 
+The graph below shows the realized and predicted heart rate for the models on the testing set, which contains of 25% of the total dataset. 
 
 ```{r model glm, echo=FALSE, warning=FALSE}
 library(caret);library(gbm)
@@ -112,31 +112,23 @@ R2glm = 1 - SSE/SST
 library(ggplot2)
 ```
 
-```{r plot1, echo=FALSE, fig.height= 5, fig.width=12, warning=FALSE, message=FALSE}
-plot2<-plot(predtest$x,predtest$pred1, type='l', xlab='t /s', ylab='s1', col="red")
+```{r plot1, echo=FALSE, fig.height= 3, fig.width=12, warning=FALSE, message=FALSE}
+plot2<-plot(predtest$x,predtest$pred1, type='l', xlab='measurement id', ylab='heartrate', col="red")
 title(main="Realisations vs. Predictions of GLM model")
 par(new=T)
-plot(predtest$x,predtest$testing.hrate, type='l', xlab='', ylab='', axes=F, col="blue")
+plot(predtest$x,predtest$testing.hrate, type='l', xlab='measurement id', ylab='heartrate', axes=F, col="blue")
 ```
 
-The Out of sample R-squared of the GLM model is `r round(R2glm,2)`.
-
---- .class #id 
-
-## Model your heart rate with different models and variables (2/2)
-
-The graph below shows the realized and predicted heart rate for the KNN model on the testing set, which contains of 25% of the total dataset. 
+The Out of sample R-squared of the GLM model:`r round(R2glm,2)` and the KNN model: `r round(R2knn,2)`
 
 
-```{r plot2, echo=FALSE, fig.height= 5, fig.width=12, warning=FALSE, message=FALSE}
-plot2<-plot(predtest$x,predtest$pred2, type='l', xlab='t /s', ylab='s1', col="red")
+```{r plot2, echo=FALSE, fig.height= 3, fig.width=12, warning=FALSE, message=FALSE}
+plot2<-plot(predtest$x,predtest$pred2, type='l',xlab='measurement id', ylab='heartrate',  col="red")
 title(main="Realisations vs. Predictions of KNN model")
 par(new=T)
-plot(predtest$x,predtest$testing.hrate, type='l', xlab='', ylab='', axes=F, col="blue")
+plot(predtest$x,predtest$testing.hrate, type='l', xlab='measurement id', ylab='heartrate', axes=F, col="blue")
 
 ```
-
-The out of sample Rsquared of the KNN model is `r round(R2knn,2)`
 
 --- .class #id 
 
@@ -160,8 +152,9 @@ This will give the user insights in the relationship between heart rate and thei
 
 * And 100+ more improvements:)
 
---- .class #id 
-    publish(title = 'Fitbit heart rate analyses app', 'index.html', host = 'rpubs')
+
+
+
 
 
 

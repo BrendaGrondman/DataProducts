@@ -56,24 +56,16 @@ In the graph below an example is shown. It displays the relationship between Hou
 ## Model your heart rate with different models and variables (1/2)
 
 The Heart rate prediction tab challenges the user to find the best model to predict the heart rate. You can select two different models (knn and glm), 5 different variables (Distance, Floors , Calories burned, Step count, Active Minutes , Day of the week, Hour), and predict the heart rate for selected values of the selected variables.
-The graph below shows the realized and predicted heart rate for the GLM model on the testing set, which contains of 25% of the total dataset. 
+The graph below shows the realized and predicted heart rate for the models on the testing set, which contains of 25% of the total dataset. 
 
 
 
 ![plot of chunk plot1](assets/fig/plot1-1.png)
 
-The Out of sample R-squared of the GLM model is 0.53.
-
---- .class #id 
-
-## Model your heart rate with different models and variables (2/2)
-
-The graph below shows the realized and predicted heart rate for the KNN model on the testing set, which contains of 25% of the total dataset. 
+The Out of sample R-squared of the GLM model:0.53 and the KNN model: 0.56
 
 
 ![plot of chunk plot2](assets/fig/plot2-1.png)
-
-The out of sample Rsquared of the KNN model is 0.56
 
 --- .class #id 
 
@@ -97,8 +89,9 @@ This will give the user insights in the relationship between heart rate and thei
 
 * And 100+ more improvements:)
 
---- .class #id 
-    publish(title = 'Fitbit heart rate analyses app', 'index.html', host = 'rpubs')
+
+
+
 
 
 
